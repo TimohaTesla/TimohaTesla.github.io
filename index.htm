@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Tesla - Электрические автомобили</title>
+<style>
+body {
+    background-color: #000;
+    color: white;
+    font-family: comic sans ms;
+    margin: 0;
+    padding: 10px;
+}
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+}
+.header {
+    text-align: center;
+    color: #e31937;
+    margin-top: 20px;
+}
+.models {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+.model-card {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+a {
+    color: #e31937;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+}
+.gif-container {
+    text-align: center;
+    margin: 30px 0;
+}
+.gif-container img {
+    max-width: 100px;
+    border-radius: 10px;
+}
+.tech-link {
+    text-align: center;
+    margin: 30px 0;
+}
+.tech-link a {
+    background: #e31937;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<a href="index.htm">
+<img class="logo" src="images/logo.png" alt="Переход на главную"> </a>
+
+<h1 class="header">Электрические автомобили Tesla</h1>
+
+<div class="gif-container">
+    <img src="images/tesla_charging.gif" alt="Анимация зарядки Tesla">
+</div>
+
+<div class="content">
+<p style="text-align: center;">Исследуйте будущее автомобилестроения с Tesla</p>
+
+<!-- 3 основные модели -->
+<div class="models">
+    <div class="model-card">
+        <h2><a href="model_s.htm">Model S</a></h2>
+        <p>Флагманский седан</p>
+    </div>
+    <div class="model-card">
+        <h2><a href="model_3.htm">Model 3</a></h2>
+        <p>Доступный седан</p>
+    </div>
+    <div class="model-card">
+        <h2><a href="model_x.htm">Model X</a></h2>
+        <p>Премиальный SUV</p>
+    </div>
+</div>
+
+<!-- Ссылка на технологию -->
+<div class="tech-link">
+    <a href="tech.htm">Узнать о технологиях Tesla</a>
+</div>
+
+<h3>Документы для скачивания:</h3>
+<ul>
+<li><a href="documents/catalog.pdf">Каталог моделей (PDF)</a></li>
+<li><a href="documents/price-list.xlsx">Прайс-лист (XLSX)</a></li>
+</ul>
+</div>
+</body>
+</html>
