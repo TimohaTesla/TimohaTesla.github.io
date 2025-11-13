@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Калькулятор стоимости Tesla</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.calculator-container{
+max-width:600px;
+margin:40px auto;
+background:#333;
+padding:30px;
+border-radius:10px;
+}
+.form-group{
+margin-bottom:20px;
+}
+label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+select,input[type="number"]{
+width:100%;
+padding:10px;
+border:1px solid #555;
+border-radius:5px;
+background:#222;
+color:white;
+font-size:16px;
+}
+.result{
+background:#444;
+padding:20px;
+border-radius:5px;
+margin-top:20px;
+text-align:center;
+}
+.price{
+font-size:24px;
+color:#e31937;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<a href="index.htm"><img class="logo" src="images/logo.png" alt="Логотип Tesla"></a>
+
+<h1 class="header">Калькулятор стоимости Tesla</h1>
+
+<div class="calculator-container">
+<div class="form-group">
+<label for="model">Выберите модель:</label>
+<select id="model" onchange="calculatePrice()">
+<option value="">-- Выберите модель --</option>
+<option value="model_s">Tesla Model S</option>
+<option value="model_3">Tesla Model 3</option>
+<option value="model_x">Tesla Model X</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="configuration">Комплектация:</label>
+<select id="configuration" onchange="calculatePrice()">
+<option value="">-- Выберите комплектацию --</option>
+<option value="standard">Standard Range</option>
+<option value="long_range">Long Range</option>
+<option value="performance">Performance</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="color">Цвет:</label>
+<select id="color" onchange="calculatePrice()">
+<option value="white">Белый (включено)</option>
+<option value="black">Черный (+150,000 руб)</option>
+<option value="red">Красный (+200,000 руб)</option>
+<option value="blue">Синий (+180,000 руб)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="wheels">Диски:</label>
+<select id="wheels" onchange="calculatePrice()">
+<option value="standard">Стандартные (включено)</option>
+<option value="premium">Премиум (+300,000 руб)</option>
+<option value="sport">Спортивные (+450,000 руб)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="autopilot">Автопилот:</label>
+<select id="autopilot" onchange="calculatePrice()">
+<option value="basic">Базовый (включено)</option>
+<option value="enhanced">Enhanced Autopilot (+700,000 руб)</option>
+<option value="full">Full Self-Driving (+1,400,000 руб)</option>
+</select>
+</div>
+
+<div class="result">
+<h3>Итоговая стоимость:</h3>
+<div class="price" id="totalPrice">0 руб</div>
+<div id="breakdown"></div>
+</div>
+</div>
+
+<script>
+var prices={
+models:{
+model_s:{standard:14050000,long_range:16050000},
+model_3:{standard:4320000,long_range:5120000,performance:5720000},
+model_x:{standard:14820000,long_range:16820000}
+},
+colors:{white:0,black:150000,red:200000,blue:180000},
+wheels:{standard:0,premium:300000,sport:450000},
+autopilot:{basic:0,enhanced:700000,full:1400000}
+};
+
+function calculatePrice(){
+var model=document.getElementById('model').value;
+var config=document.getElementById('configuration').value;
+var color=document.getElementById('color').value;
+var wheels=document.getElementById('wheels').value;
+var autopilot=document.getElementById('autopilot').value;
+var total=0;
+var breakdown=[];
+
+if(model&&config&&prices.models[model][config]){
+total+=prices.models[model][config];
+breakdown.push('Базовая стоимость: '+prices.models[model][config].toLocaleString()+' руб');
+}
+
+if(color&&color!=='white'){
+total+=prices.colors[color];
+breakdown.push('Цвет: +'+prices.colors[color].toLocaleString()+' руб');
+}
+
+if(wheels&&wheels!=='standard'){
+total+=prices.wheels[wheels];
+breakdown.push('Диски: +'+prices.wheels[wheels].toLocaleString()+' руб');
+}
+
+if(autopilot&&autopilot!=='basic'){
+total+=prices.autopilot[autopilot];
+breakdown.push('Автопилот: +'+prices.autopilot[autopilot].toLocaleString()+' руб');
+}
+
+document.getElementById('totalPrice').textContent=total.toLocaleString()+' руб';
+document.getElementById('breakdown').innerHTML=breakdown.join('<br>');
+}
+</script>
+</body>
+</html>
