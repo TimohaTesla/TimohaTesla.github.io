@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+    body {
+        background: #333;
+        color: white;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin: 15px 0;
+    }
+    a {
+        color: #e31937;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        background: #444;
+        border-radius: 5px;
+    }
+    a:hover {
+        background: #555;
+        color: white;
+    }
+    .exit-frame {
+        background: #e31937 !important;
+        color: white !important;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+    <h3>Меню навигации</h3>
+    <ul>
+        <li><a href="index.htm" target="_top">Главная страница</a></li>
+        <li><a href="model_s.htm" target="content">Model S</a></li>
+        <li><a href="model_3.htm" target="content">Model 3</a></li>
+        <li><a href="model_x.htm" target="content">Model X</a></li>
+        <li><a href="tech.htm" target="content">Технологии</a></li>
+        <li><a href="form.htm" target="content">Форма обратной связи</a></li>
+    </ul>
+    
+    <h3>Документы:</h3>
+    <ul>
+        <li><a href="documents/catalog.pdf" target="content">Каталог (PDF)</a></li>
+        <li><a href="documents/price-list.xlsx" target="content">Прайс-лист (XLSX)</a></li>
+    </ul>
+
+    <!-- Явная кнопка выхода из фреймов -->
+    <a href="index.htm" target="_top" class="exit-frame">Выйти из версии с фреймами</a>
+</body>
+</html>
